@@ -10648,3 +10648,15 @@ main {
   min-height: 500px;
 }
 
+main .cardShopMaster {
+  cursor: pointer;
+}
+
+main .cardShopMaster .btn {
+  display: none;
+}
+
+main form .btn-block {
+  display: none;
+}
+

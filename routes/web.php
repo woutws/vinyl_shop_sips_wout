@@ -33,6 +33,12 @@ Route::view('/', 'home');
 
 });*/
 
+//shop routes
+Route::get('shop', 'ShopController@index');
+Route::get('shop/{id}', 'ShopController@show');
+Route::get('shop_alt', 'ShopController@alt');
+
+
 // New version with prefix and group
 Route::prefix('admin')->group(function () {
     Route:: redirect("/", "admin/records");
