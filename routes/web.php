@@ -14,12 +14,17 @@
 //     return view('welcome');
 
 // });
+Auth::routes();
+Route::get('logout', 'Auth\LoginController@logout');
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::view('/', 'home');
 
 /*Route::get('contact-us', function () {
     //return 'Contact info';
     return view("contact");
 });*/
-Route::view('contact-us', 'contact');
+Route::get('contact-us', 'ContactUsController@show');
+Route::post('contact-us', 'ContactUsController@sendEmail');
 Route::view('/', 'home');
 
 /*Route::get('admin/records', function (){
@@ -40,7 +45,9 @@ Route::get('shop_alt', 'ShopController@alt');
 
 
 // New version with prefix and group
-Route::prefix('admin')->group(function () {
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route:: redirect("/", "admin/records");
     Route::get('records', 'Admin\RecordController@index');
 });
+
+
