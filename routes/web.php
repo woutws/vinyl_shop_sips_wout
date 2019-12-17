@@ -47,7 +47,17 @@ Route::get('shop_alt', 'ShopController@alt');
 // New version with prefix and group
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route:: redirect("/", "admin/records");
+    Route::resource('genres', 'Admin\GenreController');
     Route::get('records', 'Admin\RecordController@index');
+});
+
+//user routes
+Route::redirect('user', '/user/profile');
+Route::middleware(['auth'])->prefix('user')->group(function () {
+    Route::get('profile', 'User\ProfileController@edit');
+    Route::post('profile', 'User\ProfileController@update');
+    Route::get('password', 'User\PasswordController@edit');
+    Route::post('password', 'User\PasswordController@update');
 });
 
 

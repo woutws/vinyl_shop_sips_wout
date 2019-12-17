@@ -24,7 +24,8 @@ class ContactUsController extends Controller
         ]);
         // Send email
          $email = new ContactMail($request);
-            \Mail::to($request) // or Mail::to($request->email, $request->name)
+           // \Mail::to($request)
+           \Mail::to($request->email, $request->name)
           ->send($email);
           // Flash filled-in form values to the session
           $request->flash();

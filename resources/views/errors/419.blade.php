@@ -11,8 +11,6 @@
         $('#back').click(function () {
            window.history.back();
         });
-        // Remove the right navigation
-        $('nav .ml-auto').hide();
     </script>
 @endsection
 

@@ -31,10 +31,11 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-
-        return $this->from('info@thevinylshop.com', 'The Vinyl Shop - Info')
-        ->cc('info@thevinylshop.com', 'The Vinyl Shop - Info')
+        $contact = $this->request->input('contact');
+        return $this->from(strtolower($contact).'@thevinylshop.com', 'The Vinyl Shop - '.$contact)
+        ->cc(strtolower($contact).'@thevinylshop.com', 'The Vinyl Shop - '.$contact)
         ->subject('The Vinyl Shop - Contact Form')
         ->markdown('email.contact');
+
     }
 }
