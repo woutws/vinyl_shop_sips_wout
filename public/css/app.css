@@ -10983,3 +10983,7 @@ main form .btn-block {
   display: none;
 }
 
+.btn[disabled] {
+  cursor: not-allowed;
+}
+
